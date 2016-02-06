@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreMotion
 
 class ViewController: UIViewController {
     
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
     var rangeTime = 1.0
     var timer = NSTimer()
     var audio:AVAudioPlayer!
+    var accelerationWait = 3.0
+    var accTimer = NSTimer()
+    var snoozeFlag = false
     
     
     override func viewDidLoad() {
@@ -29,6 +33,12 @@ class ViewController: UIViewController {
         datePicker.datePickerMode = UIDatePickerMode.Time
         let currentDate = NSDate()
         datePicker.date = currentDate
+        setLabel("")
+        
+        let soundName:String = "Audio/trump0"
+        if let audio = self.setupAudioPlayerWithFile(soundName, type:"wav") {
+            self.audio = audio
+        }
         print("Check1")
     }
     
@@ -37,15 +47,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
     @IBAction func myDateView(sender: UIDatePicker) {
         setTime(datePicker.date)
         print("TIME TRIGGERED" )
     }
     
     @IBAction func myButton(sender: UIButton){
-        print("BUTTON TRIGGERED" )
-        startTimer()
+        if(theButton.currentTitle == "Set Time"){
+            print("BUTTON TRIGGERED" )
+            startTimer()
+        }else if(theButton.currentTitle == "Shut up"){
+            stopAlarm()
+        }
+        
     }
+    
     
     
     
@@ -85,6 +105,7 @@ class ViewController: UIViewController {
             rangeTime = 86400 + rangeTime
         }
         print(rangeTime)
+        theButton.setTitle("Shut up" ,forState: UIControlState.Normal)
         //this timer runs checkTimer every 1 second
         timer = NSTimer.scheduledTimerWithTimeInterval(1,
             target: self,
@@ -107,9 +128,10 @@ class ViewController: UIViewController {
     }
     
     func timerEnded(){
-        setLabel("TIME OVER")
+        setLabel("WAKE UP AMERICA")
         playAlarm()
         makeNotif("WAKE UP AMERICA")
+        beginSnooze()
     }
     
     func makeNotif(message:String) {
@@ -138,7 +160,7 @@ class ViewController: UIViewController {
     }
     
     func playAlarm(){
-        var soundName:String = "Audio/trump0";
+        let soundName:String = "Audio/trump0"
         /*let diceRoll = Int(arc4random_uniform(10))
         if diceRoll == 0 {
         soundName = "trump0"
@@ -182,14 +204,30 @@ class ViewController: UIViewController {
         audio?.play()
     }
     
-    func stopAlarm(status:Int) {
-        audio.stop()
-    }
-    
-    func snooze() {
+    func stopAlarm() {
+        if(audio.playing){
+            audio.stop()
+        }
+        timer.invalidate()
+        setLabel("")
+        setTime(datePicker.date)
+        theButton.setTitle("Set Time" ,forState: UIControlState.Normal)
         
     }
     
+    func beginSnooze() {
+        snoozeFlag = true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if(motion == .MotionShake && snoozeFlag == true){
+            print("HOLY SHIT THIS WORKS")
+            snoozeFlag = false
+            rangeTime = 30
+            audio.stop()
+            startTimer()
+        }
+    }
 }
 
 
