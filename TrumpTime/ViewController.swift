@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     var audio:AVAudioPlayer!
     var accelerationWait = 3.0
     var accTimer = NSTimer()
+    var soundName:String = "Audio/trump0"
     var snoozeFlag = false
     var angry:Bool = false
     var hasSnoozed = false
@@ -41,7 +42,6 @@ class ViewController: UIViewController {
         datePicker.date = currentDate
         setLabel("")
         
-        let soundName:String = "Audio/trump0"
         if let audio = self.setupAudioPlayerWithFile(soundName, type:"wav") {
             self.audio = audio
         }
@@ -166,38 +166,22 @@ class ViewController: UIViewController {
     }
     
     func playAlarm(){
-        let soundName:String = "Audio/trump0"
-        /*let diceRoll = Int(arc4random_uniform(10))
+        let diceRoll = Int(arc4random_uniform(5))
         if diceRoll == 0 {
-        soundName = "trump0"
+        soundName = "Audio/trump0"
         }
         if diceRoll == 1 {
-        soundName = "trump1"
+        soundName = "Audio/trump1"
         }
         if diceRoll == 2 {
-        soundName = "trump2"
+        soundName = "Audio/trump2"
         }
         if diceRoll == 3 {
-        soundName = "trump3"
+        soundName = "Audio/trump3"
         }
         if diceRoll == 4 {
-        soundName = "trump4"
+        soundName = "Audio/trump4"
         }
-        if diceRoll == 5 {
-        soundName = "trump5"
-        }
-        if diceRoll == 6 {
-        soundName = "trump6"
-        }
-        if diceRoll == 7 {
-        soundName = "trump7"
-        }
-        if diceRoll == 8 {
-        soundName = "trump8"
-        }
-        if diceRoll == 9 {
-        soundName = "trump9"
-        }*/
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setCategory(AVAudioSessionCategoryPlayback)
         
