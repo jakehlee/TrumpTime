@@ -40,12 +40,17 @@ class ViewController: UIViewController {
         datePicker.datePickerMode = UIDatePickerMode.Time
         let currentDate = NSDate()
         datePicker.date = currentDate
-        setLabel("")
+        setLabel("TRUMP TIME")
         
         if let audio = self.setupAudioPlayerWithFile(soundName, type:"wav") {
             self.audio = audio
         }
+        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         print("Check1")
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,6 +71,7 @@ class ViewController: UIViewController {
         if(theButton.currentTitle == "Set Time"){
             print("BUTTON TRIGGERED" )
             startTimer()
+            fadeOutPicker()
         }else if(theButton.currentTitle == "Shut up"){
             stopAlarm()
         }
@@ -199,11 +205,12 @@ class ViewController: UIViewController {
             hasSnoozed = false
             checkFB()
         }else{
+            self.fadeInPicker()
             if(self.audio.playing){
                 self.audio.stop()
             }
             self.timer.invalidate()
-            self.setLabel("")
+            self.setLabel("TRUMP TIME")
             self.setTime(self.datePicker.date)
             self.theButton.setTitle("Set Time" ,forState: UIControlState.Normal)
         }
@@ -229,11 +236,12 @@ class ViewController: UIViewController {
                     break
                 case SLComposeViewControllerResult.Done:
                     print("Done")
+                    self.fadeInPicker()
                     if(self.audio.playing){
                         self.audio.stop()
                     }
                     self.timer.invalidate()
-                    self.setLabel("")
+                    self.setLabel("TRUMP TIME")
                     self.setTime(self.datePicker.date)
                     self.theButton.setTitle("Set Time" ,forState: UIControlState.Normal)
                     break
@@ -256,6 +264,20 @@ class ViewController: UIViewController {
             audio.stop()
             startTimer()
         }
+    }
+    
+    func fadeOutPicker() {
+        // Fade the picker out
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.datePicker.alpha = 0.0
+            }, completion: nil)
+    }
+    
+    func fadeInPicker() {
+        // Fade the picker out
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.datePicker.alpha = 1.0
+            }, completion: nil)
     }
 }
 
