@@ -7,8 +7,11 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 import CoreMotion
 import AVFoundation
+=======
+>>>>>>> parent of e78d30c... Gryo beta
 
 class ViewController: UIViewController {
 
@@ -20,10 +23,14 @@ class ViewController: UIViewController {
     
     var pickedTime = NSDate()
     var rangeTime = 1.0
+<<<<<<< HEAD
     var accelerationWait = 3.0
     var timer = NSTimer()
     var accTimer = NSTimer()
     var audio:AVAudioPlayer!
+=======
+    var timer = NSTimer();
+>>>>>>> parent of e78d30c... Gryo beta
     
     
     override func viewDidLoad() {
@@ -189,34 +196,9 @@ class ViewController: UIViewController {
         //stop alarm sound
     }
     
-    func snoozeAlarm() {
+    func snooze() {
         
-        let manager = CMMotionManager()
-        let int_time = 0.01
-        if manager.accelerometerAvailable{
-            manager.accelerometerUpdateInterval = int_time
-            manager.startAccelerometerUpdatesToQueue(NSOperationQueue.mainQueue()){ data,error in
-                self.accTimer = NSTimer.scheduledTimerWithTimeInterval(0.5,
-                    target: self,
-                    selector: "waitTime:",
-                    userInfo: nil,
-                    repeats: true)
-            }
-        
-        }
-
     }
 
-    func waitTime(accTimer:NSTimer, data:CMAccelerometerData){
-        if data.acceleration.x > 0.1 && data.acceleration.y > 0.1 {
-            accelerationWait = accelerationWait - 1
-        }else{
-            accelerationWait = 3
-        }
-        if(accelerationWait < 0){
-            accTimer.invalidate()
-            timerEnded()
-            print("HOLY SHIT THIS WORKS")
-        }
-    }
 }
+
