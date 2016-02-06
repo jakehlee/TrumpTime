@@ -47,6 +47,8 @@ class ViewController: UIViewController {
         startTimer()
     }
     
+    
+    
     func setLabel(aString:String) {
         topLabel.text = aString
     }
@@ -107,7 +109,15 @@ class ViewController: UIViewController {
     func timerEnded(){
         setLabel("TIME OVER")
         playAlarm()
-        
+        makeNotif("WAKE UP AMERICA")
+    }
+    
+    func makeNotif(message:String) {
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        localNotification.alertBody = message
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
     func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer?  {
