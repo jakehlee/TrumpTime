@@ -18,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         // Override point for customization after application launch.
-        return true
+        // Override point for customization after application launch.
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        //return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
+    {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -42,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+        loginManager.logOut()
     }
     
     

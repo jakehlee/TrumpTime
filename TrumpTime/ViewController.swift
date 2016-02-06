@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import Social
 import AVFoundation
 import CoreMotion
 
@@ -25,10 +27,12 @@ class ViewController: UIViewController {
     var accelerationWait = 3.0
     var accTimer = NSTimer()
     var snoozeFlag = false
-    
+    var angry:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png"))
         // Do any additional setup after loading the view, typically from a nib.
         datePicker.datePickerMode = UIDatePickerMode.Time
         let currentDate = NSDate()
