@@ -14,6 +14,7 @@
 		2399FFCC1C65A4AA007FCD57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2399FFCA1C65A4AA007FCD57 /* LaunchScreen.storyboard */; };
 		2399FFD71C65A4AA007FCD57 /* TrumpTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399FFD61C65A4AA007FCD57 /* TrumpTimeTests.swift */; };
 		2399FFE21C65A4AA007FCD57 /* TrumpTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399FFE11C65A4AA007FCD57 /* TrumpTimeUITests.swift */; };
+		96D218011C65D661005FF0D6 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 96D218001C65D661005FF0D6 /* Audio */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2399FFDD1C65A4AA007FCD57 /* TrumpTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrumpTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2399FFE11C65A4AA007FCD57 /* TrumpTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpTimeUITests.swift; sourceTree = "<group>"; };
 		2399FFE31C65A4AA007FCD57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96D218001C65D661005FF0D6 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		2399FFB51C65A4AA007FCD57 = {
 			isa = PBXGroup;
 			children = (
+				96D218001C65D661005FF0D6 /* Audio */,
 				2399FFC01C65A4AA007FCD57 /* TrumpTime */,
 				2399FFD51C65A4AA007FCD57 /* TrumpTimeTests */,
 				2399FFE01C65A4AA007FCD57 /* TrumpTimeUITests */,
@@ -235,6 +238,7 @@
 				2399FFCC1C65A4AA007FCD57 /* LaunchScreen.storyboard in Resources */,
 				2399FFC91C65A4AA007FCD57 /* Assets.xcassets in Resources */,
 				2399FFC71C65A4AA007FCD57 /* Main.storyboard in Resources */,
+				96D218011C65D661005FF0D6 /* Audio in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +489,7 @@
 				2399FFE81C65A4AA007FCD57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2399FFE91C65A4AA007FCD57 /* Build configuration list for PBXNativeTarget "TrumpTimeTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				2399FFEB1C65A4AA007FCD57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2399FFEC1C65A4AA007FCD57 /* Build configuration list for PBXNativeTarget "TrumpTimeUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +507,7 @@
 				2399FFEE1C65A4AA007FCD57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
