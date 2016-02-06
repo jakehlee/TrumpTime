@@ -210,56 +210,65 @@ class ViewController: UIViewController {
         audio?.play()
     }
     
-    //var facebookFlag = true
     func stopAlarm() {
-        /*
         if(hasSnoozed){
             hasSnoozed = false
-            while(true){
-                if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)) {
-                    let socialController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                    socialController.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
-                        switch result {
-                        case SLComposeViewControllerResult.Cancelled:
-                            print("Cancelled") // Never gets called
-                            break
-                            
-                        case SLComposeViewControllerResult.Done:
-                            print("Done")
-                            self.facebookFlag = false
-                            if(self.audio.playing){
-                                self.audio.stop()
-                            }
-                            break
-                        }
+            checkFB()
+        }else{
+            if(self.audio.playing){
+                self.audio.stop()
+            }
+            self.timer.invalidate()
+            self.setLabel("")
+            self.setTime(self.datePicker.date)
+            self.theButton.setTitle("Set Time" ,forState: UIControlState.Normal)
+        }
+    }
+    
+    func checkFB(){
+        if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter)) {
+            let socialController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            socialController.setInitialText("Hello World!")
+            self.presentViewController(socialController, animated: true, completion: nil)
+            socialController.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                switch result {
+                case SLComposeViewControllerResult.Cancelled:
+                    
+                    print("Cancelled") // Never gets called
+                    let delay = 3 * Double(NSEC_PER_SEC)
+                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    dispatch_after(time, dispatch_get_main_queue()) {
+                        // After 2 seconds this line will be executed
+                        self.checkFB()
                     }
-                socialController.setInitialText("Hello World!")
-                self.presentViewController(socialController, animated: true, completion: nil)
+                    
+                    break
+                case SLComposeViewControllerResult.Done:
+                    print("Done")
+                    if(self.audio.playing){
+                        self.audio.stop()
+                    }
+                    self.timer.invalidate()
+                    self.setLabel("")
+                    self.setTime(self.datePicker.date)
+                    self.theButton.setTitle("Set Time" ,forState: UIControlState.Normal)
+                    break
                 }
             }
+            
         }
-        */
-        if(self.audio.playing){
-            self.audio.stop()
-        }
-        hasSnoozed = false
-        timer.invalidate()
-        setLabel("")
-        setTime(datePicker.date)
-        theButton.setTitle("Set Time" ,forState: UIControlState.Normal)
-        
     }
     
     func beginSnooze() {
         snoozeFlag = true
-        hasSnoozed = true
     }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if(motion == .MotionShake && snoozeFlag == true){
             print("SNOOZE")
+            hasSnoozed = true
             snoozeFlag = false
-            rangeTime = 30
+            rangeTime = 3
             audio.stop()
             startTimer()
         }
