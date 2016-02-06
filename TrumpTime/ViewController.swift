@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var topLabel: UILabel!
     
+    @IBOutlet var theImage: UIImageView!
+    
     var pickedTime = NSDate()
     var rangeTime = 1.0
     var timer = NSTimer()
@@ -46,6 +48,8 @@ class ViewController: UIViewController {
             self.audio = audio
         }
         datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        self.theImage.alpha = 0
+        setImage(0)
         print("Check1")
     }
     
@@ -73,6 +77,8 @@ class ViewController: UIViewController {
             print("BUTTON TRIGGERED" )
             startTimer()
             fadeOutPicker()
+            setImage(0)
+            fadeInImage()
         }else if(theButton.currentTitle == "Shut up"){
             stopAlarm()
         }
@@ -145,6 +151,11 @@ class ViewController: UIViewController {
         playAlarm()
         makeNotif("WAKE UP AMERICA")
         beginSnooze()
+        if(hasSnoozed == true){
+            setImage(2)
+        }else{
+            setImage(1)
+        }
     }
     
     func makeNotif(message:String) {
@@ -207,6 +218,8 @@ class ViewController: UIViewController {
             checkFB()
         }else{
             self.fadeInPicker()
+            self.fadeOutImage()
+            setImage(0)
             if(self.audio.playing){
                 self.audio.stop()
             }
@@ -217,10 +230,38 @@ class ViewController: UIViewController {
         }
     }
     
+    func genQuote() -> String{
+        let diceRoll2 = Int(arc4random_uniform(10))
+        switch diceRoll2{
+        case 0:
+            return "Sometimes your best investments are the ones you don't make."
+        case 1:
+            return "Sometimes by losing a battle you find a new way to win the war."
+        case 2:
+            return "I try to learn from the past, but I plan for the future by focusing exclusively on the present."
+        case 3:
+            return "Money was never a big motivation for me, except as a way to keep score. The real excitement is playing the game."
+        case 4:
+            return "What separates the winners from the losers is how a person reacts to each new twist of fate."
+        case 5:
+            return "You have to think anyway, so why not think big?"
+        case 6:
+            return "All of the women on The Apprentice flirted with me - consciously or unconsciously. That's to be expected."
+        case 7:
+            return "As long as your going to be thinking anyway, think big."
+        case 8:
+            return "It's always good to be underestimated."
+        case 9:
+            return "Everything in life is luck."
+        default:
+            return ""
+        }
+    }
+    
     func checkFB(){
         if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter)) {
             let socialController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            socialController.setInitialText("Hello World!")
+            socialController.setInitialText(genQuote() + " #MakeAmericaGreatAgain ")
             self.presentViewController(socialController, animated: true, completion: nil)
             socialController.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
                 switch result {
@@ -237,6 +278,8 @@ class ViewController: UIViewController {
                     break
                 case SLComposeViewControllerResult.Done:
                     print("Done")
+                    self.fadeOutImage()
+                    self.setImage(0)
                     self.fadeInPicker()
                     if(self.audio.playing){
                         self.audio.stop()
@@ -263,6 +306,7 @@ class ViewController: UIViewController {
             snoozeFlag = false
             rangeTime = 3
             audio.stop()
+            setImage(0)
             startTimer()
         }
     }
@@ -278,6 +322,37 @@ class ViewController: UIViewController {
         // Fade the picker out
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             self.datePicker.alpha = 1.0
+            }, completion: nil)
+    }
+    func setImage(state:Int) {
+        /*
+        let image0 = UIImage(named: "Images/trumpSleep.png")
+        let image1 = UIImage(named: "Images/trumpHappy.png")
+        let image2 = UIImage(named: "Images/trumpAngry.png")
+        */
+        switch state{
+        case 0:
+            theImage.image = UIImage(named: "Images/trumpSleep.png")
+        case 1:
+            theImage.image = UIImage(named: "Images/trumpHappy.png")
+            
+        case 2:
+            theImage.image = UIImage(named: "Images/trumpAngry.png")
+            
+        default:
+            theImage.image = UIImage(named: "Images/trumpHappy.png")
+        }
+    }
+    
+    func fadeOutImage() {
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.theImage.alpha = 0.0
+            }, completion: nil)
+    }
+    
+    func fadeInImage() {
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.theImage.alpha = 1.0
             }, completion: nil)
     }
 }

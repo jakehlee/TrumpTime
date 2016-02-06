@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -21,11 +21,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvU-e1-Ren">
                                 <rect key="frame" x="0.0" y="90" width="600" height="420"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-pJ-a2e">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-pJ-a2e">
                                         <rect key="frame" x="0.0" y="10" width="600" height="400"/>
                                         <subviews>
-                                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-P5-PYM">
-                                                <rect key="frame" x="100" y="92" width="400" height="216"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-P5-PYM">
+                                                <rect key="frame" x="100" y="70" width="400" height="216"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="400" id="R2F-BN-j3k"/>
                                                 </constraints>
@@ -36,12 +36,12 @@
                                                     <action selector="myDateView:" destination="BYZ-38-t0r" eventType="valueChanged" id="W7Y-wf-yL5"/>
                                                 </connections>
                                             </datePicker>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5B-6f-1do">
-                                                <rect key="frame" x="239" y="328" width="122" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5B-6f-1do">
+                                                <rect key="frame" x="239" y="336" width="122" height="36"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vO-VK-gG9">
-                                                        <rect key="frame" x="24" y="3" width="74" height="30"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vO-VK-gG9">
+                                                        <rect key="frame" x="25" y="2" width="72" height="32"/>
+                                                        <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="17"/>
                                                         <state key="normal" title="Set Time">
                                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -49,19 +49,41 @@
                                                             <action selector="myButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iS2-Gs-s1A"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Red_Star_Flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-HL-Hzw">
-                                                        <rect key="frame" x="8" y="12" width="10" height="11"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red_Star_Flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-HL-Hzw">
+                                                        <rect key="frame" x="7" y="13" width="9" height="9"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Red_Star_Flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-d7-j2D">
-                                                        <rect key="frame" x="104" y="12" width="10" height="11"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red_Star_Flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-d7-j2D">
+                                                        <rect key="frame" x="106" y="13" width="9" height="9"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.12549019610000001" green="0.14117647059999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="L9g-HL-Hzw" firstAttribute="leading" secondItem="D5B-6f-1do" secondAttribute="leading" constant="7" id="2xO-gn-RtD"/>
+                                                    <constraint firstItem="3vO-VK-gG9" firstAttribute="centerY" secondItem="D5B-6f-1do" secondAttribute="centerY" id="DVj-dW-gZY"/>
+                                                    <constraint firstAttribute="width" constant="122" id="QNf-9g-94d"/>
+                                                    <constraint firstAttribute="height" constant="36" id="V2O-RT-jHe"/>
+                                                    <constraint firstItem="L9g-HL-Hzw" firstAttribute="centerY" secondItem="D5B-6f-1do" secondAttribute="centerY" id="Yrt-KD-gIZ"/>
+                                                    <constraint firstItem="YKf-d7-j2D" firstAttribute="centerY" secondItem="D5B-6f-1do" secondAttribute="centerY" id="fHR-5M-pyH"/>
+                                                    <constraint firstItem="3vO-VK-gG9" firstAttribute="centerX" secondItem="D5B-6f-1do" secondAttribute="centerX" id="sal-3w-6vX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YKf-d7-j2D" secondAttribute="trailing" constant="7" id="srZ-ny-ENC"/>
+                                                </constraints>
                                             </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ylu-OJ-IrK">
+                                                <rect key="frame" x="175" y="75" width="250" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ylu-OJ-IrK" secondAttribute="height" multiplier="1:1" id="NZp-zz-t80"/>
+                                                    <constraint firstAttribute="width" constant="250" id="VHC-fy-i7J"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.57647058819999997" green="0.0" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="ylu-OJ-IrK" firstAttribute="centerY" secondItem="bxG-pJ-a2e" secondAttribute="centerY" id="0SV-mm-qcK"/>
+                                            <constraint firstItem="D5B-6f-1do" firstAttribute="centerX" secondItem="bxG-pJ-a2e" secondAttribute="centerX" id="3uw-RM-hgK"/>
+                                            <constraint firstItem="ylu-OJ-IrK" firstAttribute="centerX" secondItem="bxG-pJ-a2e" secondAttribute="centerX" id="Tgi-rm-umY"/>
                                             <constraint firstAttribute="width" secondItem="bxG-pJ-a2e" secondAttribute="height" multiplier="600:400" id="dxq-vc-RHi"/>
+                                            <constraint firstItem="D5B-6f-1do" firstAttribute="top" secondItem="fQH-P5-PYM" secondAttribute="bottom" constant="50" id="dz5-1w-gEw"/>
+                                            <constraint firstItem="fQH-P5-PYM" firstAttribute="top" secondItem="bxG-pJ-a2e" secondAttribute="top" constant="70" id="fPl-8L-Ifm"/>
                                             <constraint firstAttribute="width" constant="600" id="hmV-yF-mht"/>
                                         </constraints>
                                     </view>
@@ -72,9 +94,9 @@
                                     <constraint firstAttribute="width" constant="600" id="t5N-rz-eej"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-Ff-nTh">
-                                <rect key="frame" x="267" y="28" width="67" height="31"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-Ff-nTh">
+                                <rect key="frame" x="264.5" y="30" width="71.5" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,14 +105,20 @@
                         <constraints>
                             <constraint firstItem="KvU-e1-Ren" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6rk-1b-VoD"/>
                             <constraint firstItem="CJU-Ff-nTh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9f0-wE-lNM"/>
+                            <constraint firstItem="ylu-OJ-IrK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Aqs-m3-w9S"/>
+                            <constraint firstItem="ylu-OJ-IrK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V0b-zz-Wwk"/>
                             <constraint firstItem="CJU-Ff-nTh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="f5u-XQ-bSf"/>
                             <constraint firstItem="KvU-e1-Ren" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iqy-pD-zPB"/>
+                            <constraint firstItem="bxG-pJ-a2e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="myb-NT-PrA"/>
+                            <constraint firstItem="bxG-pJ-a2e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nuj-eC-eQF"/>
+                            <constraint firstItem="fQH-P5-PYM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pA1-Mp-Qzc"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="datePicker" destination="fQH-P5-PYM" id="0nt-Hs-5rf"/>
                         <outlet property="theButton" destination="3vO-VK-gG9" id="ebw-Lb-2cI"/>
+                        <outlet property="theImage" destination="ylu-OJ-IrK" id="C47-TM-Q4x"/>
                         <outlet property="topLabel" destination="CJU-Ff-nTh" id="HK4-06-Iu4"/>
                     </connections>
                 </viewController>
