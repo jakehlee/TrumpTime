@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
     var pickedTime = NSDate()
     var rangeTime = 1.0
     var timer = NSTimer();
+    var audio:AVAudioPlayer!
     
     
     override func viewDidLoad() {
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
         print("TIME TRIGGERED" )
     }
     
-    @IBAction func myButton(sender: UIButton) {
+    @IBAction func myButton(sender: UIButton){
         print("BUTTON TRIGGERED" )
         startTimer()
     }
@@ -76,7 +78,7 @@ class ViewController: UIViewController {
         print(rangeTime)
     }
     
-    func startTimer() {
+    func startTimer(){
         if(rangeTime < 0){
             rangeTime = 86400 + rangeTime
         }
@@ -108,8 +110,66 @@ class ViewController: UIViewController {
         
     }
     
-    func playAlarm() {
-        //play alarm sound
+    func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer?  {
+        //1
+        let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
+        let url = NSURL.fileURLWithPath(path!)
+        //2
+        var audioPlayer:AVAudioPlayer?
+        
+        // 3
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+        } catch {
+            print("Player not available")
+        }
+        
+        return audioPlayer
+    }
+    
+    func playAlarm(){
+        var soundName:String = "Audio/trump0";
+        /*let diceRoll = Int(arc4random_uniform(10))
+        if diceRoll == 0 {
+            soundName = "trump0"
+        }
+        if diceRoll == 1 {
+            soundName = "trump1"
+        }
+        if diceRoll == 2 {
+            soundName = "trump2"
+        }
+        if diceRoll == 3 {
+            soundName = "trump3"
+        }
+        if diceRoll == 4 {
+            soundName = "trump4"
+        }
+        if diceRoll == 5 {
+            soundName = "trump5"
+        }
+        if diceRoll == 6 {
+            soundName = "trump6"
+        }
+        if diceRoll == 7 {
+            soundName = "trump7"
+        }
+        if diceRoll == 8 {
+            soundName = "trump8"
+        }
+        if diceRoll == 9 {
+            soundName = "trump9"
+        }*/
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryPlayback)
+        
+        if let audio = self.setupAudioPlayerWithFile(soundName, type:"wav") {
+            self.audio = audio
+        }
+        
+        audio?.numberOfLoops = -1
+        audio?.prepareToPlay()
+        audio?.play()
     }
     
     func stopAlarm() {
