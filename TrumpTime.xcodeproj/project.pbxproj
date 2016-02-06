@@ -15,6 +15,7 @@
 		2305720B1C65F3CE00982875 /* TrumpTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305720A1C65F3CE00982875 /* TrumpTimeTests.swift */; };
 		230572161C65F3CE00982875 /* TrumpTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230572151C65F3CE00982875 /* TrumpTimeUITests.swift */; };
 		230572261C65F52200982875 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 230572251C65F52200982875 /* Audio */; };
+		23BC82021C6638A40093E145 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 23BC82011C6638A40093E145 /* Images */; };
 		96D218101C65F7CF005FF0D6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D2180F1C65F7CE005FF0D6 /* FBSDKCoreKit.framework */; };
 		96D218121C65F84B005FF0D6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D218111C65F84B005FF0D6 /* FBSDKShareKit.framework */; };
 		96D218141C65F867005FF0D6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D218131C65F867005FF0D6 /* FBSDKLoginKit.framework */; };
@@ -53,6 +54,7 @@
 		230572151C65F3CE00982875 /* TrumpTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpTimeUITests.swift; sourceTree = "<group>"; };
 		230572171C65F3CE00982875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230572251C65F52200982875 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
+		23BC82011C6638A40093E145 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		96D2180F1C65F7CE005FF0D6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		96D218111C65F84B005FF0D6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FBSDKShareKit.framework; sourceTree = "<group>"; };
 		96D218131C65F867005FF0D6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 		230571E91C65F3CE00982875 = {
 			isa = PBXGroup;
 			children = (
-				96D218161C66016D005FF0D6 /* Images */,
+				23BC82011C6638A40093E145 /* Images */,
 				230572251C65F52200982875 /* Audio */,
 				230571F41C65F3CE00982875 /* TrumpTime */,
 				230572091C65F3CE00982875 /* TrumpTimeTests */,
@@ -144,13 +146,6 @@
 				230572171C65F3CE00982875 /* Info.plist */,
 			);
 			path = TrumpTimeUITests;
-			sourceTree = "<group>";
-		};
-		96D218161C66016D005FF0D6 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BC82021C6638A40093E145 /* Images in Resources */,
 				230572001C65F3CE00982875 /* LaunchScreen.storyboard in Resources */,
 				96D218211C663DB9005FF0D6 /* Red_Star_Flag.png in Resources */,
 				230571FD1C65F3CE00982875 /* Assets.xcassets in Resources */,

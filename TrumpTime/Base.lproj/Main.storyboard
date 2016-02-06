@@ -72,25 +72,67 @@
                                     <constraint firstAttribute="width" constant="600" id="t5N-rz-eej"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-Ff-nTh">
-                                <rect key="frame" x="267" y="28" width="67" height="31"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-pJ-a2e">
+                                <rect key="frame" x="0.0" y="100" width="600" height="400"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.0" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bxG-pJ-a2e" secondAttribute="height" multiplier="600:400" id="dxq-vc-RHi"/>
+                                    <constraint firstAttribute="width" constant="600" id="hmV-yF-mht"/>
+                                </constraints>
+                            </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-P5-PYM">
+                                <rect key="frame" x="100" y="192" width="400" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="R2F-BN-j3k"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="476424027.22393203">
+                                    <!--2016-02-06 04:00:27 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="myDateView:" destination="BYZ-38-t0r" eventType="valueChanged" id="W7Y-wf-yL5"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vO-VK-gG9">
+                                <rect key="frame" x="270" y="448" width="61" height="30"/>
+                                <state key="normal" title="Set Time"/>
+                                <connections>
+                                    <action selector="myButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iS2-Gs-s1A"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJU-Ff-nTh">
+                                <rect key="frame" x="269.5" y="30" width="61.5" height="31"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-67-JqQ">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gqW-67-JqQ" secondAttribute="height" multiplier="1:1" id="i4d-vT-ccA"/>
+                                    <constraint firstAttribute="width" constant="250" id="izd-bd-HHh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019610000001" green="0.14117647059999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KvU-e1-Ren" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6rk-1b-VoD"/>
                             <constraint firstItem="CJU-Ff-nTh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9f0-wE-lNM"/>
+                            <constraint firstItem="fQH-P5-PYM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BYL-cy-LlJ"/>
+                            <constraint firstItem="bxG-pJ-a2e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EUh-50-quT"/>
+                            <constraint firstItem="3vO-VK-gG9" firstAttribute="top" secondItem="fQH-P5-PYM" secondAttribute="bottom" constant="40" id="U4O-8J-nkf"/>
+                            <constraint firstItem="gqW-67-JqQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="by3-Ur-XmQ"/>
+                            <constraint firstItem="3vO-VK-gG9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eLK-bj-57M"/>
                             <constraint firstItem="CJU-Ff-nTh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="f5u-XQ-bSf"/>
                             <constraint firstItem="KvU-e1-Ren" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iqy-pD-zPB"/>
+                            <constraint firstItem="gqW-67-JqQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nqQ-R2-kgg"/>
+                            <constraint firstItem="bxG-pJ-a2e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wdP-lK-GiC"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="datePicker" destination="fQH-P5-PYM" id="0nt-Hs-5rf"/>
                         <outlet property="theButton" destination="3vO-VK-gG9" id="ebw-Lb-2cI"/>
+                        <outlet property="theImage" destination="gqW-67-JqQ" id="yQu-Da-xcz"/>
                         <outlet property="topLabel" destination="CJU-Ff-nTh" id="HK4-06-Iu4"/>
                     </connections>
                 </viewController>

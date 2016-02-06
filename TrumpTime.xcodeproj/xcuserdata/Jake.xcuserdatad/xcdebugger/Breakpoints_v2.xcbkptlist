@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrumpTime/ViewController.swift"
-            timestampString = "476459252.928812"
+            timestampString = "476462100.918559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "myDateView(_:)"
             landmarkType = "5">
          </BreakpointContent>
