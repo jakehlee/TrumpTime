@@ -18,6 +18,7 @@
 		96D218101C65F7CF005FF0D6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D2180F1C65F7CE005FF0D6 /* FBSDKCoreKit.framework */; };
 		96D218121C65F84B005FF0D6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D218111C65F84B005FF0D6 /* FBSDKShareKit.framework */; };
 		96D218141C65F867005FF0D6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D218131C65F867005FF0D6 /* FBSDKLoginKit.framework */; };
+		96D218211C663DB9005FF0D6 /* Red_Star_Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D218201C663DB9005FF0D6 /* Red_Star_Flag.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		96D218111C65F84B005FF0D6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FBSDKShareKit.framework; sourceTree = "<group>"; };
 		96D218131C65F867005FF0D6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		96D218151C65F922005FF0D6 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		96D218201C663DB9005FF0D6 /* Red_Star_Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_Star_Flag.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				230571F71C65F3CE00982875 /* ViewController.swift */,
 				230571F91C65F3CE00982875 /* Main.storyboard */,
 				230571FC1C65F3CE00982875 /* Assets.xcassets */,
+				96D218201C663DB9005FF0D6 /* Red_Star_Flag.png */,
 				230571FE1C65F3CE00982875 /* LaunchScreen.storyboard */,
 				230572011C65F3CE00982875 /* Info.plist */,
 			);
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				230572001C65F3CE00982875 /* LaunchScreen.storyboard in Resources */,
+				96D218211C663DB9005FF0D6 /* Red_Star_Flag.png in Resources */,
 				230571FD1C65F3CE00982875 /* Assets.xcassets in Resources */,
 				230571FB1C65F3CE00982875 /* Main.storyboard in Resources */,
 				230572261C65F52200982875 /* Audio in Resources */,
