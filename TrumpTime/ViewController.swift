@@ -239,6 +239,9 @@ class ViewController: UIViewController {
             }
         }
         */
+        if(self.audio.playing){
+            self.audio.stop()
+        }
         hasSnoozed = false
         timer.invalidate()
         setLabel("")
