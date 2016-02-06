@@ -11,6 +11,7 @@ import UIKit
 import Social
 import AVFoundation
 import CoreMotion
+import Social
 
 class ViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     var accTimer = NSTimer()
     var snoozeFlag = false
     var angry:Bool = false
+    var hasSnoozed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -208,10 +210,36 @@ class ViewController: UIViewController {
         audio?.play()
     }
     
+    //var facebookFlag = true
     func stopAlarm() {
-        if(audio.playing){
-            audio.stop()
+        /*
+        if(hasSnoozed){
+            hasSnoozed = false
+            while(true){
+                if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)) {
+                    let socialController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    socialController.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                        switch result {
+                        case SLComposeViewControllerResult.Cancelled:
+                            print("Cancelled") // Never gets called
+                            break
+                            
+                        case SLComposeViewControllerResult.Done:
+                            print("Done")
+                            self.facebookFlag = false
+                            if(self.audio.playing){
+                                self.audio.stop()
+                            }
+                            break
+                        }
+                    }
+                socialController.setInitialText("Hello World!")
+                self.presentViewController(socialController, animated: true, completion: nil)
+                }
+            }
         }
+        */
+        hasSnoozed = false
         timer.invalidate()
         setLabel("")
         setTime(datePicker.date)
@@ -221,11 +249,12 @@ class ViewController: UIViewController {
     
     func beginSnooze() {
         snoozeFlag = true
+        hasSnoozed = true
     }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if(motion == .MotionShake && snoozeFlag == true){
-            print("HOLY SHIT THIS WORKS")
+            print("SNOOZE")
             snoozeFlag = false
             rangeTime = 30
             audio.stop()

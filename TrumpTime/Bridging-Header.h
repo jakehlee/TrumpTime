@@ -10,6 +10,6 @@
 #define Bridging_Header_h
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-//#import <FBSDKLoginKit/FBSDKShareKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 #endif /* Bridging_Header_h */
